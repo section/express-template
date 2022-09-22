@@ -4,7 +4,7 @@ const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
   res.json({
-    commit_id: process.env.COMMIT_ID || 'unknown1',
+    commit_id: process.env.COMMIT_ID || 'unknown2',
     port
   })
 })
