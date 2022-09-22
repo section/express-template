@@ -28,8 +28,9 @@ setCluster() {
   kubectl config set-context my-section-application --cluster=section --user=section-user --namespace=default
 
   kubectl config use-context my-section-application
-
+  echo version is next
   kubectl version
+  echo version is done
 }
 
 "$@"
