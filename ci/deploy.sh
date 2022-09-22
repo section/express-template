@@ -30,7 +30,7 @@ setCluster() {
 
   kubectl config use-context my-section-application
 
-  #kubectl version
+  kubectl version
 }
 
 "$@"
