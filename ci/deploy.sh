@@ -10,6 +10,8 @@ main() {
   setCluster
 
   kubectl apply -f ../k8s
+
+  kubectl rollout restart deployment node-express
 }
 
 setCluster() {
