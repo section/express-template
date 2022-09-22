@@ -8,7 +8,9 @@ cert=/etc/ssl/certs/ca-certificates.crt
 
 main() {
   setCluster
+  echo kubectl apply is next
   kubectl apply -f ../k8s
+  echo kubectl apply is done
 }
 
 setCluster() {
