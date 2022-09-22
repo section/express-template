@@ -11,7 +11,7 @@ main() {
 
   kubectl apply -f ../k8s
 
-  kubectl rollout restart deployment node-express
+  #kubectl rollout restart deployment node-express
 }
 
 setCluster() {
@@ -25,8 +25,6 @@ setCluster() {
   kubectl config set-cluster section \
   --server=$KEI_URL \
   --certificate-authority=$cert
-
-echo $KEI_URL
 
   kubectl config set-credentials section-user --token=$SECTION_API_TOKEN
 
