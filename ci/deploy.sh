@@ -23,7 +23,7 @@ setCluster() {
   --server=$KEI_URL \
   --certificate-authority=$cert
 
-  kubectl config set-credentials section-user --token=$KEI_USER_TOKEN
+  kubectl config set-credentials section-user --token=$SECTION_API_TOKEN
 
   kubectl config set-context my-section-application --cluster=section --user=section-user --namespace=default
 

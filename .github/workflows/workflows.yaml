@@ -27,6 +27,6 @@ jobs:
       - name: Deploy on Section
         env:
           KEI_URL: "${{ secrets.KEI_URL }}"
-          KEI_USER_TOKEN: "${{ secrets.KEI_USER_TOKEN }}"
+          KEI_USER_TOKEN: "${{ secrets.SECTION_API_TOKEN }}"
         run: | 
           ./ci/deploy.sh master
