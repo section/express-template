@@ -3,7 +3,7 @@ name: ci
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
@@ -29,4 +29,4 @@ jobs:
           KEI_URL: "${{ secrets.KEI_URL }}"
           KEI_USER_TOKEN: "${{ secrets.KEI_USER_TOKEN }}"
         run: | 
-          ./ci/deploy.sh main
+          ./ci/deploy.sh master
