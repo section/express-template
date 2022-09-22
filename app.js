@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
   res.json({
     commit_id: process.env.COMMIT_ID || 'unknown2',
     port,
-    foo:4
+    foo:5
   })
 })
 
