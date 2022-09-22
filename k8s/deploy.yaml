@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-express
+  labels:
+    app: node-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-express
+  template:
+    metadata:
+      labels:
+        app: node-express
+    spec:
+      containers:
+      - name: node-express
+        image: ghcr.io/chainsaw2k/node-express:prod
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: ".5Gi"
+            cpu: "500m"
+          limits:
+            memory: ".5Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
