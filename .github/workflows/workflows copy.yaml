@@ -1,0 +1,33 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Seed env
+        run: |
+          echo $GITHUB_SHA | awk '{ printf "SHORT_SHA1=%.7s\n", $1 }' >> $GITHUB_ENV
+          basename $GITHUB_REF | awk '{ printf "BRANCH_NAME=%s\n", $1 }' >> $GITHUB_ENV
+      - name: Docker build
+        run: docker build --rm=false --build-arg COMMIT_ID=$GITHUB_SHA -t ghcr.io/${{github.actor}}/node-express:prod . # REPLACE <YOUR_GITHUB_USERNAME> with your GitHub username.
+      - name: Docker login
+        run: echo $GHCR_TOKEN | docker login ghcr.io -u ${{github.actor}} --password-stdin # REPLACE <YOUR_GITHUB_USERNAME> with your GitHub username.
+      - name: Docker push
+        run: docker push ghcr.io/${{github.actor}}/node-express:prod # REPLACE <YOUR_GITHUB_USERNAME> with your GitHub username.
+      - name: Deploy on Section
+        env:
+          KEI_URL: "${{ secrets.KEI_URL }}"
+          SECTION_API_TOKEN: "${{ secrets.SECTION_API_TOKEN }}"
+          DEBUG: 1
+        run: | 
+          ./ci/deploy.sh main
