@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-express
-        image: ghcr.io/chainsaw2k/node-express:prod
+        image: ghcr.io/chainsaw2k/node-express:master
         imagePullPolicy: Always
         resources:
           requests:
