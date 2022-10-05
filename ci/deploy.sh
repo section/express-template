@@ -24,7 +24,7 @@ setCluster() {
   fi
 
   kubectl config set-cluster section \
-  --server=$KEI_URL \
+  --server=$SECTION_K8S_API_URL \
   --certificate-authority=$cert
 
   kubectl config set-credentials section-user --token=$SECTION_API_TOKEN
