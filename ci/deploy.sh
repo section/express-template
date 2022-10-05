@@ -9,7 +9,8 @@ cert=/etc/ssl/certs/ca-certificates.crt
 main() {
   setCluster
 
-  kubectl apply -f ../k8s
+  envsubst '$GITHUB_USERNAME' < ../k8s/deploy.yaml | kubectl apply -f -
+  kubectl apply -f ../k8s/ingress-upstream.yaml
 
   kubectl rollout restart deployment node-express
 }
