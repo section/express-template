@@ -42,7 +42,6 @@ jobs:
         env:
           KEI_URL: "${{ secrets.KEI_URL }}"
           SECTION_API_TOKEN: "${{ secrets.SECTION_API_TOKEN }}"
-          GITHUB_USERNAME: ${{ github.actor }}
           DEBUG: 1
         run: | 
           ./ci/deploy.sh main
