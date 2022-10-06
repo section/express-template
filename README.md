@@ -1,5 +1,5 @@
 # Explanations of some of the choices on this
-* The user must make a public repo from this template so that the resulting ghcr.io image is also public. Otherwise the image will be private, and Section won't be able to access it until the user figures out how to later make the image public.
+* The user must make a public repo from this template so that the resulting ghcr.io image is also public. Otherwise the image will be private, and Section won't be able to access it until the user wanders through the settings to make the image public.
 * "Use this template" is best, and fork doesn't work, because GitHub Actions are initially turned off for forks. It can be turned on, of course. But then we'd have to explain that step.
 
 # TODO
