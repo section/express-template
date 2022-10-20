@@ -4,18 +4,17 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 
-app.get('/', async (req, res) => {
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// index page
+app.get('/', async function(req, res) {
   const response = await fetch('https://ipinfo.io/json');
   const info = await response.text();
   const locationInfo = JSON.parse(info);
 
-  res.send(
-    `<head><style>body { font-family: "Segoe UI"; }</style></head>
-    <h1>Hello World from Node Express on Section!!!</h1><p>This app is being served from 4 locations around the world for <b>low latency</b> and <b>high availability</b>: New York, SFO, Amsterdam, Sydney.</p>
-    <p>You are hitting the example application running in ${locationInfo.city}, ${locationInfo.region} - ${locationInfo.country}</p>
-    <p>Distribute your own Node Express app by visiting <a href=\"http://section.io/docs/tutorials/frameworks/nodeexpress/\">http://section.io/docs/tutorials/frameworks/nodeexpress/</a></p>`
-    );
-})
+  res.render('pages/index', locationInfo);
+});
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`)

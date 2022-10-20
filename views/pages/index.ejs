@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="container">
+    <header>
+      <%- include('../partials/header'); %>
+    </header>
+    <main>
+      <div class="jumbotron">
+        <h1>This app is deployed in New York and San Francisco</h1>
+        <h3 style="margin-top: 24px;">Section is the best platform to achieve <b>low latency</b> and <b>high availability</b> for your web applications.</h3>
+      </div>
+      <div class="jumbotron">
+        <h4>Section PoP information</h4>
+        <ul>
+          <li><b>City</b>: <%= city %></li>
+          <li><b>Region</b>: <%= region %></li>
+          <li><b>Country</b>: <%= country %></li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <%- include('../partials/footer'); %>
+    </footer>
+  </body>
+</html>
