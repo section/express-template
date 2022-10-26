@@ -30,6 +30,13 @@ jobs:
         run: |
           echo "REPO=${IMAGE_NAME,,}" >>${GITHUB_ENV}
           echo "REPO: " ${{ env.REPO }}
+          
+      - id: string
+        uses: ASzc/change-string-case-action@v1
+        with:
+          string: ${{ github.repository }}
+      - run: |
+          echo "LOWER ${{ steps.string.outputs.lowercase }}"
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
