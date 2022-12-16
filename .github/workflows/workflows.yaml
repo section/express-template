@@ -1,4 +1,4 @@
-name: ci
+name: Deployed to Section
 
 on:
   push:
