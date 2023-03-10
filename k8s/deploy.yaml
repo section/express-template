@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-express
-        image: ghcr.io/${IMAGE_NAME}:master
+        image: ghcr.io/${IMAGE_NAME}:main
         imagePullPolicy: Always
         resources:
           requests:
