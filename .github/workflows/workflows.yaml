@@ -2,7 +2,7 @@ name: Deployed to Section
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   workflow_dispatch:
 
 env:
