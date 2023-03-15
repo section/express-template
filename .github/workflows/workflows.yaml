@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  REPO: ${{ github.repository }}
 
 jobs:
   build-push:
@@ -29,13 +29,13 @@ jobs:
           
       - name: downcase REPO
         run: |
-          echo "REPO=${IMAGE_NAME,,}" >>${GITHUB_ENV}
+          echo "IMAGE_NAME=${REPO,,}" >>${GITHUB_ENV}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/${{ env.REPO }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
