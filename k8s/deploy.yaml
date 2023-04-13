@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-express
+  name: section-project-deployment
   labels:
-    app: node-express
+    app: console-project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-express
+      app: console-project
   template:
     metadata:
       labels:
-        app: node-express
+        app: console-project
     spec:
       containers:
-      - name: node-express
-        image: ghcr.io/${IMAGE_NAME}:main
-        imagePullPolicy: Always
-        resources:
-          requests:
-            memory: "200Mi"
-            cpu: "200m"
-          limits:
-            memory: "200Mi"
-            cpu: "200m"
-        ports:
-        - containerPort: 80
+        - name: console-project
+          image: ghcr.io/${IMAGE_NAME}:main
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "200Mi"
+              cpu: "200m"
+            limits:
+              memory: "200Mi"
+              cpu: "200m"
+          ports:
+            - containerPort: 80

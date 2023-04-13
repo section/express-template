@@ -1,18 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-    labels:
-        app: ingress-upstream
-    name: ingress-upstream
+  labels:
+    app: ingress-upstream
+  name: ingress-upstream
 spec:
-    ports:
+  ports:
     - name: 80-3000
       port: 80
       protocol: TCP
       targetPort: 3000
-    selector:
-        app: node-express
-    sessionAffinity: None
-    type: ClusterIP
+  selector:
+    app: console-project
+  sessionAffinity: None
+  type: ClusterIP
 status:
-    loadBalancer: {}
+  loadBalancer: {}
