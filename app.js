@@ -1,21 +1,15 @@
-const fetch = require('node-fetch')
-
 const express = require('express')
 const app = express()
+const favicon = require('serve-favicon')
+const path = require('path')
 const port = process.env.PORT || 3000
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
-// index page
-app.get('/', async function(req, res) {
-  const response = await fetch('https://ipinfo.io/json');
-  const info = await response.text();
-  const locationInfo = JSON.parse(info);
-
-  res.render('pages/index', locationInfo);
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'views', 'index.html'))
 });
 
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
+    console.log(`App listening on port ${port}`)
 })
